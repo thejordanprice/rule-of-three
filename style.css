@@ -14,16 +14,22 @@ body {
 .site-title {
   font-weight: bold;
   text-align: center;
-}
-
-.form-control::placeholder {
-  color: lightgrey;
+  color: darkslategray;
 }
 
 #answer {
   padding-top: 5px;
   font-size: 24px;
   font-weight: bold;
+}
+
+#equals {
+  font-weight: bold;
+  color: lightgrey;
+}
+
+.form-control::placeholder {
+  color: lightgrey;
 }
 
 .footer {

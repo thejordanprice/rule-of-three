@@ -1,8 +1,21 @@
-// global var hooks
-const answer = document.querySelector('#answer');
-const submit = document.querySelector('#submit');
+// all of our elements with the class .form-control
+const inputElems = document.querySelectorAll('.form-control');
 
-const getInputs = () => {
+// for each input element with .form-control class
+for (let elem in inputElems) {
+  // make sure its an object, not a function or number
+  if (typeof inputElems[elem] === 'object') {
+    // create event listener
+    inputElems[elem].addEventListener('keypress', (event) => {
+      // the global hook
+      processValues((calculated) => {
+        document.querySelector('#answer').innerHTML = calculated;
+      });
+    });
+  }
+}
+
+const getInputs = (callback) => {
   // input / dom controlling
   const valArr = {
     'a': document.querySelector('#aInput').value,
@@ -21,12 +34,15 @@ const getInputs = () => {
     }
   }
   // return the response
-  return JSON.stringify({ valArr, empties }, null, 2);
+  callback(JSON.stringify({ valArr, empties }, null, 2));
 };
 
 const processValues = (callback) => {
   // our last step sent us JSON
-  const values = JSON.parse(getInputs());
+  let values;
+  getInputs((data) => {
+    values = JSON.parse(data);
+  });
 
   // error handling
   if (values.empties.length !== 1) {
@@ -47,10 +63,3 @@ const processValues = (callback) => {
     callback(values.valArr.b * values.valArr.c / values.valArr.a);
   }
 };
-
-submit.addEventListener('click', (event) => {
-  // the global hook
-  processValues((calculated) => {
-    answer.innerHTML = calculated;
-  });
-});
