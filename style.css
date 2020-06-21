@@ -11,15 +11,19 @@ body {
   padding-top: 15px;
 }
 
+.site-title {
+  font-weight: bold;
+  text-align: center;
+}
+
+.form-control::placeholder {
+  color: lightgrey;
+}
+
 #answer {
   padding-top: 5px;
   font-size: 24px;
   font-weight: bold;
-}
-
-.site-title {
-  font-weight: bold;
-  text-align: center;
 }
 
 .footer {

@@ -7,20 +7,18 @@
   <meta name="robots" content="noindex, nofollow">
   <meta name="googlebot" content="noindex, nofollow">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" href="src/css/style.css">
-  <link rel="stylesheet" type="text/css" href="src/css/bootstrap.min.css">
-  <script type="text/javascript" src="src/js/jquery-3.5.1.slim.min.js"></script>
-  <script type="text/javascript" src="src/js/popper.min.js"></script>
-  <script type="text/javascript" src="src/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="src/js/37866a75b2.js"></script>
+  <link rel="stylesheet" type="text/css" href="lib/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script type="text/javascript" src="lib/js/jquery-3.5.1.slim.min.js"></script>
+  <script type="text/javascript" src="lib/js/popper.min.js"></script>
+  <script type="text/javascript" src="lib/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="lib/js/88e2e18cf7.js"></script>
   <link rel="icon" type="image/ico" href="favicon.ico">
-  <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#ffffff">
 </head>
 <body>
-    <div class='container'>
+<div class='container'>
   <div class='col'>
-    <h4 class='site-title'><i class='fa fa-calculator' aria-hidden='true'></i> Cross-Multiply and Divide</h4>
+    <h4 class='site-title'><i class="fas fa-calculator"></i> Cross-Multiply and Divide</h4>
   </div>
   <br />
   <div class='form-group'>
@@ -29,32 +27,39 @@
         <div class='input-group mb-3'>
           <input type='number' id='aInput' class='form-control' placeholder='0'>
           <div class='input-group-append'>
-            <span class='input-group-text'>a=</span>
+            <span class='input-group-text'>Α</span>
           </div>
         </div>
+        <hr>
         <div class='input-group mb-3'>
-          <input type='number' id='bInput' class='form-control' placeholder='3'>
+          <input type='number' id='bInput' class='form-control' placeholder='512'>
           <div class='input-group-append'>
-            <span class='input-group-text'>b=</span>
+            <span class='input-group-text'>Β</span>
           </div>
         </div>
       </div>
+      <div class='col-1 text-center align-self-center' id='equals'>
+        <i class="fas fa-equals fa-2x"></i>
+      </div>
       <div class='col'>
         <div class='input-group mb-3'>
-          <input type='number' id='cInput' class='form-control' placeholder='5'>
+          <input type='number' id='cInput' class='form-control' placeholder='768'>
           <div class='input-group-append'>
-            <span class='input-group-text'>c=</span>
+            <span class='input-group-text'>Γ</span>
           </div>
         </div>
+        <hr>
         <div class='input-group mb-3'>
-          <input type='number' id='dInput' class='form-control' placeholder='8'>
+          <input type='number' id='dInput' class='form-control' placeholder='1024'>
           <div class='input-group-append'>
-            <span class='input-group-text'>d=</span>
+            <span class='input-group-text'>Δ</span>
           </div>
         </div>
       </div>
     </div>
-    <div class='col'>
+    <br />
+    <div class='col text-center'>
+      <pre>Note: Remember to leave an input blank.</pre>
       <button class='btn btn-lg btn-primary btn-block' type='submit' id='submit'>Calculate!</button>
     </div>
     <div class='col text-center'>
@@ -70,7 +75,7 @@
   </div>
 </footer>
 
-<script type="text/javascript" src="src/script.js"></script>
+<script type="text/javascript" src="index.js"></script>
 
 </body>
 </html>
