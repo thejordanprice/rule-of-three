@@ -57,7 +57,7 @@ const processValues = () => {
     element.classList.add('answered');
     element.placeholder = math;
   }
-  // box gramma is empty
+  // box gamma is empty
   if (values.empties == 3) {
     const element = document.querySelector('#cInput');
     const math = values.valArr.a * values.valArr.d / values.valArr.b;

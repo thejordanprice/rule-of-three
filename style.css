@@ -29,6 +29,26 @@ body {
   color: #d3d3d3;
 }
 
+@media screen and (min-width: 0px) and (max-width: 600px) {
+  #equals { 
+    visibility: hidden;
+    display: none; 
+  }
+  #notes {
+    font-size: small;
+  }
+}
+
+@media screen and (min-width: 601px) and (max-width: 1024px) {
+  #equals {
+    visibility: visible;
+    display: block;
+  }
+  #notes {
+    font-size: medium;
+  }
+}
+
 .form-control::placeholder {
   color: #d3d3d3;
 }
@@ -61,11 +81,14 @@ body {
 }
 
 .site-footer {
+  color: #2f4f4f;
+  font-weight: bold;
   text-align: center;
 }
 
-.site-footer .icon {
-  font-size: 14px;
+.site-footer a {
+  color: #976abb; 
+  font-weight: bold;
 }
 
 .site-footer .love .fas {
