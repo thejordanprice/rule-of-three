@@ -14,7 +14,7 @@ body {
 .site-title {
   font-weight: bold;
   text-align: center;
-  color: darkslategray;
+  color: #2f4f4f;
 }
 
 #answer {
@@ -25,11 +25,21 @@ body {
 
 #equals {
   font-weight: bold;
-  color: lightgrey;
+  color: #d3d3d3;
 }
 
 .form-control::placeholder {
-  color: lightgrey;
+  color: #d3d3d3;
+}
+
+.form-control:focus {
+  border-color: #114f79;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px #114f79;
+}
+
+.answered {
+  border-color: #3f8848;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px #3f8848;
 }
 
 .footer {

@@ -1,12 +1,12 @@
+"use strict";
+
 // all of our elements with the class .form-control
-const inputElems = document.querySelectorAll('.form-control');
+const inputElements = document.querySelectorAll('.form-control');
 
 // for each input element with .form-control class
-for (let elem in inputElems) {
-  // make sure its an object, not a function or number
-  if (typeof inputElems[elem] === 'object') {
-    // create event listener
-    inputElems[elem].addEventListener('keyup', (event) => {
+for (let element in inputElements) {
+  if (typeof inputElements[element] === 'object') {
+    inputElements[element].addEventListener('keyup', (event) => {
       // the global hook
       processValues((calculated) => {
         document.querySelector('#answer').innerHTML = calculated;
@@ -52,15 +52,32 @@ const processValues = (callback) => {
 
   // box is empty, answer using the correct formula
   if (values.empties == 1) {
+    const element = document.querySelector('#aInput');
+    element.classList.add('answered');
     callback(values.valArr.b * values.valArr.c / values.valArr.d);
   }
   if (values.empties == 2) {
+    const element = document.querySelector('#bInput');
+    element.classList.add('answered');
     callback(values.valArr.a * values.valArr.d / values.valArr.c);
   }
   if (values.empties == 3) {
+    const element = document.querySelector('#cInput');
+    element.classList.add('answered');
     callback(values.valArr.a * values.valArr.d / values.valArr.b);
   }
   if (values.empties == 4) {
+    const element = document.querySelector('#dInput');
+    element.classList.add('answered');
     callback(values.valArr.b * values.valArr.c / values.valArr.a);
   }
+
+  setInterval(() => {
+    const elements = document.querySelectorAll('.answered');
+    for (let element in elements) {
+      if (typeof elements[element] === 'object') {
+        elements[element].classList.remove('answered');
+      }
+    }
+  }, 7000);
 };
