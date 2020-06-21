@@ -73,11 +73,12 @@ const processValues = (callback) => {
   }
 
   setInterval(() => {
+    // clear the answered css classes
     const elements = document.querySelectorAll('.answered');
     for (let element in elements) {
       if (typeof elements[element] === 'object') {
         elements[element].classList.remove('answered');
       }
     }
-  }, 7000);
+  }, 3500);
 };
