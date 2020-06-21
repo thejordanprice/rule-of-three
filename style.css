@@ -34,7 +34,7 @@ body {
 }
 
 .form-control.answered::placeholder {
-  color: #d3d3d3;
+  color: #558138;
   font-weight: bold;
 }
 

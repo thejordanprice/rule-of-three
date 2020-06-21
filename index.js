@@ -6,12 +6,9 @@ const inputElements = document.querySelectorAll('.form-control');
 // for each input element with .form-control class
 for (let element in inputElements) {
   if (typeof inputElements[element] === 'object') {
-    inputElements[element].addEventListener('keyup', (event) => {
+    inputElements[element].addEventListener('keyup', () => {
       // the global hook
-      processValues((calculated) => {
-        // removed could be used for debugging
-        // document.querySelector('#answer').innerHTML = calculated;
-      });
+      processValues();
     });
   }
 }
@@ -39,25 +36,19 @@ const getInputs = (callback) => {
   callback(JSON.stringify({ valArr, empties }, null, 2));
 };
 
-const processValues = (callback) => {
+const processValues = () => {
   // our last step sent us JSON
   let values;
   getInputs((data) => {
     values = JSON.parse(data);
   });
-
-  // error handling
-  if (values.empties.length !== 1) {
-    callback('You must input 3 variables.');
-  }
-
+  
   // box alpha is empty, answer using the correct formula
   if (values.empties == 1) {
     const element = document.querySelector('#aInput');
     const math = values.valArr.b * values.valArr.c / values.valArr.d;
     element.classList.add('answered');
     element.placeholder = math;
-    callback(math);
   }
   // box beta is empty
   if (values.empties == 2) {
@@ -65,7 +56,6 @@ const processValues = (callback) => {
     const math = values.valArr.a * values.valArr.d / values.valArr.c;
     element.classList.add('answered');
     element.placeholder = math;
-    callback(math);
   }
   // box gramma is empty
   if (values.empties == 3) {
@@ -73,7 +63,6 @@ const processValues = (callback) => {
     const math = values.valArr.a * values.valArr.d / values.valArr.b;
     element.classList.add('answered');
     element.placeholder = math;
-    callback(math);
   }
   // box delta is empty
   if (values.empties == 4) {
@@ -81,7 +70,6 @@ const processValues = (callback) => {
     const math = values.valArr.b * values.valArr.c / values.valArr.a;
     element.classList.add('answered');
     element.placeholder = math;
-    callback(math);
   }
 
   const timer = setInterval(() => {
@@ -93,35 +81,16 @@ const processValues = (callback) => {
         elements[element].classList.remove('answered');
       }
     }
-  }, 2000);
-};
+  }, 5000);
 
-/**
- * Paste from a work in progress...
- * 
- *   let element;
-  switch (parseInt(JSON.stringify(values.empties[0]))) {
-    default:
-      answer
-    case 1:
-      element = document.querySelector('#aInput');
-      element.classList.add('answered');
-      callback(values.valArr.b * values.valArr.c / values.valArr.d);
-      break;
-    case 2:
-      element = document.querySelector('#bInput');
-      element.classList.add('answered');
-      callback(values.valArr.a * values.valArr.d / values.valArr.c);
-      break;
-    case 3:
-      element = document.querySelector('#cInput');
-      element.classList.add('answered');
-      callback(values.valArr.a * values.valArr.d / values.valArr.b);
-      break;
-    case 4:
-      element = document.querySelector('#dInput');
-      element.classList.add('answered');
-      callback(values.valArr.b * values.valArr.c / values.valArr.a);
-      break;
+  // attempt to easily copy to clipboard of the answer data
+  const elements = document.querySelectorAll('input');
+  for (let element in elements) {
+    if (typeof elements[element] === 'object') {
+      elements[element].addEventListener('click', () => {
+        const text = elements[element].placeholder;
+        navigator.clipboard.writeText(text);
+      });
+    }
   }
- */
+};
