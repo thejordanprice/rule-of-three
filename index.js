@@ -82,3 +82,4 @@ const processValues = () => {
       }
     }
   }, 5000);
+};
