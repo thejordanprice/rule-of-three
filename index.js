@@ -72,13 +72,14 @@ const processValues = (callback) => {
     callback(values.valArr.b * values.valArr.c / values.valArr.a);
   }
 
-  setInterval(() => {
+  const timer = setInterval(() => {
     // clear the answered css classes
+    clearInterval(timer);
     const elements = document.querySelectorAll('.answered');
     for (let element in elements) {
       if (typeof elements[element] === 'object') {
         elements[element].classList.remove('answered');
       }
     }
-  }, 3500);
+  }, 2000);
 };
