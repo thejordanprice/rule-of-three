@@ -82,15 +82,3 @@ const processValues = () => {
       }
     }
   }, 5000);
-
-  // attempt to easily copy to clipboard of the answer data
-  const elements = document.querySelectorAll('input');
-  for (let element in elements) {
-    if (typeof elements[element] === 'object') {
-      elements[element].addEventListener('click', () => {
-        const text = elements[element].placeholder;
-        navigator.clipboard.writeText(text);
-      });
-    }
-  }
-};
