@@ -6,7 +6,7 @@ for (let elem in inputElems) {
   // make sure its an object, not a function or number
   if (typeof inputElems[elem] === 'object') {
     // create event listener
-    inputElems[elem].addEventListener('keypress', (event) => {
+    inputElems[elem].addEventListener('keyup', (event) => {
       // the global hook
       processValues((calculated) => {
         document.querySelector('#answer').innerHTML = calculated;
@@ -33,6 +33,7 @@ const getInputs = (callback) => {
       empties.push(cycle);
     }
   }
+
   // return the response
   callback(JSON.stringify({ valArr, empties }, null, 2));
 };
