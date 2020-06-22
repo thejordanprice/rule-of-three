@@ -3,7 +3,7 @@
   "short_name": "rule-of-three",
   "theme_color": "#9fb2c2",
   "background_color": "#9fb2c2",
-  "display": "minimal-ui",
+  "display": "standalone",
   "Scope": "/",
   "start_url": "https://thejordanprice.github.io/rule-of-three/",
   "icons": [
