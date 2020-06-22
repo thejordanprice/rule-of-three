@@ -1,11 +1,11 @@
 {
-  "name": "Cross-Multiply and Divide",
-  "short_name": "CMaD",
-  "theme_color": "#2196f3",
-  "background_color": "#2196f3",
+  "name": "Rule of Three",
+  "short_name": "rule-of-three",
+  "theme_color": "#9fb2c2",
+  "background_color": "#9fb2c2",
   "display": "minimal-ui",
   "Scope": "/",
-  "start_url": "https://thejordanprice.github.io/cross-multiply-divide/",
+  "start_url": "https://thejordanprice.github.io/rule-of-three/",
   "icons": [
     {
       "src": "icons/icon-72x72.png",
