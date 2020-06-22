@@ -16,10 +16,10 @@ for (let element in inputElements) {
 const getInputs = (callback) => {
   // input / dom controlling
   const valArr = {
-    'a': document.querySelector('#aInput').value,
-    'b': document.querySelector('#bInput').value,
-    'c': document.querySelector('#cInput').value,
-    'd': document.querySelector('#dInput').value
+    'a': document.querySelector('#aInput').value || 0,
+    'b': document.querySelector('#bInput').value || 0,
+    'c': document.querySelector('#cInput').value || 0,
+    'd': document.querySelector('#dInput').value || 0
   };
   
   // empty input tracking
