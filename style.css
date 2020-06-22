@@ -27,24 +27,9 @@ body {
   color: #d3d3d3;
 }
 
-@media screen and (min-width: 0px) and (max-width: 600px) {
-  #equals { 
-    visibility: hidden;
-    display: none; 
-  }
-  #notes {
-    font-size: small;
-  }
-}
-
-@media screen and (min-width: 601px) and (max-width: 1024px) {
-  #equals {
-    visibility: visible;
-    display: block;
-  }
-  #notes {
-    font-size: medium;
-  }
+.form-control {
+  font-size: 24px;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
 .form-control::placeholder {
@@ -53,7 +38,6 @@ body {
 
 .form-control.answered::placeholder {
   color: #558138;
-  font-weight: bold;
 }
 
 .form-control:focus {
@@ -94,4 +78,24 @@ body {
   margin-left: 2px;
   margin-right: 2px;
   color: #b384da;
+}
+
+@media screen and (min-width: 0px) and (max-width: 600px) {
+  #equals { 
+    visibility: hidden;
+    display: none; 
+  }
+  #notes {
+    font-size: small;
+  }
+}
+
+@media screen and (min-width: 601px) and (max-width: 1024px) {
+  #equals {
+    visibility: visible;
+    display: block;
+  }
+  #notes {
+    font-size: medium;
+  }
 }
