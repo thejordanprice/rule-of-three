@@ -7,6 +7,14 @@ body {
   margin-bottom: 60px;
 }
 
+a:link, a:visited, a:active {
+  text-decoration: none;
+  color:#40726E;
+}
+a:hover {
+  color: #6E4072;
+}
+
 .container {
   padding-top: 15px;
 }
@@ -16,22 +24,6 @@ body {
   font-weight: bold;
   text-align: center;
   color: #40726E;
-}
-
-a:link, a:visited, a:active {
-  color:#40726E;
-}
-a:hover {
-  color: #6E4072;
-}
-.card-title, .card-text, .card-link {
-  color: #5c5f64;
-}
-
-#equals {
-  font-size: large;
-  font-weight: bolder;
-  color: #d3d3d3;
 }
 
 .form-control {
@@ -54,6 +46,20 @@ a:hover {
 .answered {
   border-color: #6E4072;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px #6E4072;
+}
+
+#equals {
+  font-size: large;
+  font-weight: bolder;
+  color: #d3d3d3;
+}
+
+#notes {
+  font-family: monospace;
+}
+
+.card-title, .card-text, .card-link {
+  color: #5c5f64;
 }
 
 .footer {
