@@ -43,6 +43,7 @@ const processValues = () => {
     values = JSON.parse(data);
   });
 
+  // init our vars
   let element;
   let answer;
   
