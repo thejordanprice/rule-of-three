@@ -17,6 +17,10 @@ body {
   color: #2f4f4f;
 }
 
+.card-title, .card-text, .card-link {
+  color: #5c5f64;
+}
+
 #answer {
   padding-top: 5px;
   font-size: 24px;
