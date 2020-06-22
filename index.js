@@ -42,35 +42,37 @@ const processValues = () => {
   getInputs((data) => {
     values = JSON.parse(data);
   });
+
+  let element;
+  let answer;
   
   // box alpha is empty, answer using the correct formula
   if (values.empties == 1) {
-    const element = document.querySelector('#aInput');
-    const math = values.valArr.b * values.valArr.c / values.valArr.d;
-    element.classList.add('answered');
-    element.placeholder = math;
+    element = document.querySelector('#aInput');
+    answer = values.valArr.b * values.valArr.c / values.valArr.d;
   }
+
   // box beta is empty
   if (values.empties == 2) {
-    const element = document.querySelector('#bInput');
-    const math = values.valArr.a * values.valArr.d / values.valArr.c;
-    element.classList.add('answered');
-    element.placeholder = math;
+    element = document.querySelector('#bInput');
+    answer = values.valArr.a * values.valArr.d / values.valArr.c;
   }
+
   // box gamma is empty
   if (values.empties == 3) {
-    const element = document.querySelector('#cInput');
-    const math = values.valArr.a * values.valArr.d / values.valArr.b;
-    element.classList.add('answered');
-    element.placeholder = math;
+    element = document.querySelector('#cInput');
+    answer = values.valArr.a * values.valArr.d / values.valArr.b;
   }
+
   // box delta is empty
   if (values.empties == 4) {
-    const element = document.querySelector('#dInput');
-    const math = values.valArr.b * values.valArr.c / values.valArr.a;
-    element.classList.add('answered');
-    element.placeholder = math;
+    element = document.querySelector('#dInput');
+    answer = values.valArr.b * values.valArr.c / values.valArr.a;
   }
+
+  // no matter which box it is
+  element.placeholder = answer;
+  element.classList.add('answered');
 
   const timer = setInterval(() => {
     // clear the answered css classes

@@ -21,12 +21,6 @@ body {
   color: #5c5f64;
 }
 
-#answer {
-  padding-top: 5px;
-  font-size: 24px;
-  font-weight: bold;
-}
-
 #equals {
   font-size: large;
   font-weight: bolder;
