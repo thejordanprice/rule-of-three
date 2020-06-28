@@ -4,7 +4,7 @@
 const inputElements = document.querySelectorAll('.form-control');
 
 // for each input element with .form-control class
-for (let element in inputElements) {
+for (const element in inputElements) {
   if (typeof inputElements[element] === 'object') {
     inputElements[element].addEventListener('keyup', () => {
       // the global hook
@@ -25,7 +25,7 @@ const getInputs = (callback) => {
   // empty input tracking
   let empties = [];
   let cycle = 0;
-  for (let val in valArr) {
+  for (const val in valArr) {
     cycle++;
     if (valArr[val] == "") {
       empties.push(cycle);
@@ -79,7 +79,7 @@ const processValues = () => {
     // clear the answered css classes
     clearInterval(timer);
     const elements = document.querySelectorAll('.answered');
-    for (let element in elements) {
+    for (const element in elements) {
       if (typeof elements[element] === 'object') {
         elements[element].classList.remove('answered');
       }
