@@ -1,42 +1,88 @@
 "use strict";
 
-document.querySelectorAll('.form-control').forEach(element => {
-  element.addEventListener('keyup', processValues);
-});
+// all of our elements with the class .form-control
+const inputElements = document.querySelectorAll('.form-control');
 
-const getInputs = () => {
-  const valArr = ['a', 'b', 'c', 'd'].reduce((acc, val) => {
-    acc[val] = document.querySelector(`#${val}Input`).value || 0;
-    return acc;
-  }, {});
+// for each input element with .form-control class
+for (const element in inputElements) {
+  if (typeof inputElements[element] === 'object') {
+    inputElements[element].addEventListener('keyup', () => {
+      // the global hook
+      processValues();
+    });
+  }
+}
 
-  const empties = Object.keys(valArr).reduce((acc, val, index) => {
-    if (valArr[val] === "") {
-      acc.push(index + 1);
+const getInputs = (callback) => {
+  // input / dom controlling
+  const valArr = {
+    'a': document.querySelector('#aInput').value || 0,
+    'b': document.querySelector('#bInput').value || 0,
+    'c': document.querySelector('#cInput').value || 0,
+    'd': document.querySelector('#dInput').value || 0
+  };
+  
+  // empty input tracking
+  let empties = [];
+  let cycle = 0;
+  for (const val in valArr) {
+    cycle++;
+    if (valArr[val] == "") {
+      empties.push(cycle);
     }
-    return acc;
-  }, []);
+  }
 
-  return JSON.stringify({ valArr, empties }, null, 2);
+  // return the response
+  callback(JSON.stringify({ valArr, empties }, null, 2));
 };
 
 const processValues = () => {
-  const values = JSON.parse(getInputs());
-  const boxMapping = {
-    1: { element: '#aInput', formula: (b, c, d) => b * c / d },
-    2: { element: '#bInput', formula: (a, d, c) => a * d / c },
-    3: { element: '#cInput', formula: (a, d, b) => a * d / b },
-    4: { element: '#dInput', formula: (b, c, a) => b * c / a }
-  };
+  // our last step sent us JSON
+  let values;
+  getInputs((data) => {
+    values = JSON.parse(data);
+  });
 
-  const { element, formula } = boxMapping[values.empties[0]];
-  const answer = formula(values.valArr.a, values.valArr.b, values.valArr.c, values.valArr.d);
+  // init our vars
+  let element;
+  let answer;
+  
+  // box alpha is empty, answer using the correct formula
+  if (values.empties == 1) {
+    element = document.querySelector('#aInput');
+    answer = values.valArr.b * values.valArr.c / values.valArr.d;
+  }
 
-  const inputElement = document.querySelector(element);
-  inputElement.placeholder = answer;
-  inputElement.classList.add('answered');
+  // box beta is empty
+  if (values.empties == 2) {
+    element = document.querySelector('#bInput');
+    answer = values.valArr.a * values.valArr.d / values.valArr.c;
+  }
 
-  setTimeout(() => {
-    inputElement.classList.remove('answered');
+  // box gamma is empty
+  if (values.empties == 3) {
+    element = document.querySelector('#cInput');
+    answer = values.valArr.a * values.valArr.d / values.valArr.b;
+  }
+
+  // box delta is empty
+  if (values.empties == 4) {
+    element = document.querySelector('#dInput');
+    answer = values.valArr.b * values.valArr.c / values.valArr.a;
+  }
+
+  // no matter which box it is
+  element.placeholder = answer;
+  element.classList.add('answered');
+
+  const timer = setInterval(() => {
+    // clear the answered css classes
+    clearInterval(timer);
+    const elements = document.querySelectorAll('.answered');
+    for (const element in elements) {
+      if (typeof elements[element] === 'object') {
+        elements[element].classList.remove('answered');
+      }
+    }
   }, 5000);
 };
