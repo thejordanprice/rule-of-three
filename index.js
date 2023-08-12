@@ -4,14 +4,11 @@
 const inputElements = document.querySelectorAll('.form-control');
 
 // for each input element with .form-control class
-for (const element in inputElements) {
-  if (typeof inputElements[element] === 'object') {
-    inputElements[element].addEventListener('keyup', () => {
-      // the global hook
-      processValues();
-    });
+document.addEventListener('keyup', (event) => {
+  if (event.target.classList.contains('form-control')) {
+    processValues();
   }
-}
+});
 
 const getInputs = (callback) => {
   // input / dom controlling
